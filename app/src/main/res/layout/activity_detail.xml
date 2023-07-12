@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.detail.DetailActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_main_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include
+            android:id="@+id/view_error"
+            layout="@layout/view_error"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:id="@+id/pb_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_detail_summary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/frame_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/material_card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_detail_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/check_icon"
+                        android:scaleType="centerCrop"
+                        tools:src="@tools:sample/avatars" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/back_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:clickable="true"
+                        android:contentDescription="@string/back_button"
+                        android:focusable="true"
+                        app:backgroundTint="@color/white"
+                        app:srcCompat="@drawable/baseline_arrow_back_ios_new_24" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/favorite_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="15dp"
+                        android:backgroundTint="@color/white"
+                        android:clickable="true"
+                        android:contentDescription="@string/favorite_button"
+                        android:focusable="true"
+                        app:borderWidth="0dp"
+                        app:srcCompat="@drawable/baseline_bookmark_border_24" />
+                </com.google.android.material.card.MaterialCardView>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/textColor"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frame_layout"
+                tools:text="Cannellini Bean and Asparagus Salad with Mushrooms" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_detail_title">
+
+                <ImageView
+                    android:id="@+id/iv_detail_vegetarian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/check_icon"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_detail_vegetarian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/vegetarian"
+                    android:textColor="#70FF05"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_detail_vegetarian"
+                    app:layout_constraintStart_toEndOf="@+id/iv_detail_vegetarian"
+                    app:layout_constraintTop_toTopOf="@+id/iv_detail_vegetarian" />
+
+                <ImageView
+                    android:id="@+id/iv_detail_vegan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/check_icon"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintStart_toStartOf="@+id/iv_detail_vegetarian"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_detail_vegetarian" />
+
+                <TextView
+                    android:id="@+id/tv_detail_vegan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/vegan"
+                    android:textColor="@color/green"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_detail_vegan"
+                    app:layout_constraintStart_toEndOf="@+id/iv_detail_vegan"
+                    app:layout_constraintTop_toTopOf="@+id/iv_detail_vegan" />
+
+                <ImageView
+                    android:id="@+id/iv_detail_gluten_free"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:contentDescription="@string/check_icon"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_detail_vegetarian"
+                    app:layout_constraintStart_toEndOf="@+id/tv_detail_vegetarian"
+                    app:layout_constraintTop_toTopOf="@+id/tv_detail_vegetarian" />
+
+                <TextView
+                    android:id="@+id/tv_detail_gluten_free"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/check_icon"
+                    android:text="@string/gluten_free"
+                    android:textColor="@color/green"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_detail_gluten_free"
+                    app:layout_constraintStart_toEndOf="@+id/iv_detail_gluten_free"
+                    app:layout_constraintTop_toTopOf="@+id/iv_detail_gluten_free" />
+
+                <ImageView
+                    android:id="@+id/iv_detail_dairy_free"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/check_icon"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintStart_toStartOf="@+id/iv_detail_gluten_free"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_detail_gluten_free" />
+
+                <TextView
+                    android:id="@+id/tv_detail_dairy_free"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/dairy_free"
+                    android:textColor="@color/green"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_detail_dairy_free"
+                    app:layout_constraintStart_toEndOf="@+id/iv_detail_dairy_free"
+                    app:layout_constraintTop_toTopOf="@+id/iv_detail_dairy_free" />
+
+                <ImageView
+                    android:id="@+id/iv_detail_healthy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:contentDescription="@string/check_icon"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_detail_gluten_free"
+                    app:layout_constraintStart_toEndOf="@+id/tv_detail_gluten_free"
+                    app:layout_constraintTop_toTopOf="@+id/tv_detail_gluten_free" />
+
+                <TextView
+                    android:id="@+id/tv_detail_healthy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/healthy"
+                    android:textColor="@color/green"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_detail_healthy"
+                    app:layout_constraintStart_toEndOf="@+id/iv_detail_healthy"
+                    app:layout_constraintTop_toTopOf="@+id/iv_detail_healthy" />
+
+                <ImageView
+                    android:id="@+id/iv_detail_cheap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/check_icon"
+                    android:src="@drawable/ic_check"
+                    app:layout_constraintStart_toStartOf="@+id/iv_detail_healthy"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_detail_healthy" />
+
+                <TextView
+                    android:id="@+id/tv_detail_cheap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/cheap"
+                    android:textColor="@color/green"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_detail_cheap"
+                    app:layout_constraintStart_toEndOf="@+id/iv_detail_cheap"
+                    app:layout_constraintTop_toTopOf="@+id/iv_detail_cheap" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_detail_summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:justificationMode="inter_word"
+                android:textColor="@color/textColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                tools:text="There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc." />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
